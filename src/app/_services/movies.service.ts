@@ -1,23 +1,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
+import {Observable} from 'rxjs/index';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
 
-  readonly ROOT_URL = 'http://www.omdbapi.com';
-
-  movies: Observable<any>;
+  readonly ROOT_URL = 'http://www.omdbapi.com/?apikey=63484010';
 
   constructor(private _http: HttpClient) { }
 
-  getFilms() {
-    return this._http.get(this.ROOT_URL);
+  getFilms(title, type) {
+    return this._http.get(this.ROOT_URL, {params: {s: title, type: type}});
   }
 }

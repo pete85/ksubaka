@@ -17,20 +17,21 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-
+    this.getFilms();
   }
 
   getFilms() {
-    this._moviesService.getFilms()
+    this._moviesService.getFilms('john', 'movie')
       .subscribe(
         data => {
           if (data !== null) {
-            this.films = data['results'];
+            this.films = data['Search'];
             console.log('Films: ', this.films);
           }
         },
         (error) => {
-          this.showAlert(JSON.parse(error._body));
+          // this.showAlert(JSON.parse(error._body));
+          console.log(error);
         },
         () => {
           console.log('finished retrieving data');
