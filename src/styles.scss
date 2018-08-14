@@ -1,9 +1,11 @@
 /* PAGINATION */
-@import url(~@angular/material/prebuilt-themes/indigo-pink.css);
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 #paginationWrapper {
   min-height: 60px;
-  overflow: hidden; }
-  #paginationWrapper #pagination {
+  overflow: hidden;
+  #pagination {
     list-style: none;
     border-radius: 0.25rem;
     position: fixed;
@@ -11,10 +13,13 @@
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
-    justify-content: center; }
-    #paginationWrapper #pagination > button {
+    justify-content: center;
+    > button {
       padding: 0;
-      min-width: 40px; }
+      min-width: 40px;
+    }
+  }
+}
 
 #ticketsViewToggle {
   position: absolute;
@@ -22,18 +27,19 @@
   bottom: 60px;
   width: 20%;
   background: #FFFFFF;
-  padding: 2px; }
+  padding: 2px;
+}
 
 .txtViewToggle {
   font-size: 15px;
-  margin: 0 !important; }
+  margin: 0 !important;
+}
 
 #list-container {
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+}
 
 .list-container {
-  margin-bottom: 50px; }
-
+  margin-bottom: 50px;
+}
 /* PAGINATION END */
-
-/*# sourceMappingURL=styles.css.map */

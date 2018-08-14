@@ -19,11 +19,33 @@
       <span fxFlex="20%">imdbID</span>
     </mat-list-item>
 
-    <mat-list-item role="listitem" *ngFor="let film of films">
+    <mat-list-item role="listitem" class="listRow" *ngFor="let film of films">
       <span fxFlex="fill">{{film.Title}}</span>
       <span fxFlex="20%">{{film.Year}}</span>
       <span fxFlex="20%">{{film.imdbID}}</span>
     </mat-list-item>
   </mat-list>
+
+
+  <!--PAGINATION-->
+  <div fxLayout="row" id="paginationWrapper" fxLayoutAlign="center center">
+    <div id="pagination">
+      <button mat-button [disabled]="page === 1" (click)="firstPage()">
+        <mat-icon>first_page</mat-icon>
+      </button>
+      <button mat-button [disabled]="page === 1" (click)="previousPage()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <div id="pageCounter">
+        {{page}} / {{totalPages}}
+      </div>
+      <button mat-button [disabled]="totalPages <= page" (click)="nextPage()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+      <button mat-button [disabled]="totalPages <= page" (click)="lastPage()">
+        <mat-icon>last_page</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
 

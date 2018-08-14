@@ -14,6 +14,8 @@ export class AppComponent implements OnInit{
   // films: any[];
   model: any = {};
   page: number;
+  results: number;
+  totalPages: number;
 
   constructor(private _moviesService: MoviesService,
               public snackBar: MatSnackBar) {
@@ -29,7 +31,10 @@ export class AppComponent implements OnInit{
         data => {
           if (data !== null) {
             this.films = data['Search'];
+            this.results = data['totalResults'];
+            this.totalPages = Math.ceil(this.results / 10);
             console.log('Films: ', this.films);
+            console.log('Results: ', this.results);
           }
         },
         (error) => {
@@ -39,6 +44,28 @@ export class AppComponent implements OnInit{
         () => {
           console.log('finished retrieving data');
         });
+  }
+
+  // PAGINATION
+
+  nextPage() {
+    this.page = this.page + 1;
+    this.getFilms();
+  }
+
+  previousPage() {
+    this.page = this.page - 1;
+    this.getFilms();
+  }
+
+  firstPage() {
+    this.page = 1;
+    this.getFilms();
+  }
+
+  lastPage() {
+    this.page = this.totalPages;
+    this.getFilms();
   }
 
   private showAlert(message) {
