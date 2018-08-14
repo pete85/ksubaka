@@ -1,7 +1,14 @@
-/* PAGINATION */
-
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.listRow {
+  border-bottom: 1px solid #E3E2E1;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(227,226,225,0.5);
+  }
+}
+
+/* PAGINATION */
 #paginationWrapper {
   min-height: 60px;
   overflow: hidden;

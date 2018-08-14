@@ -1,5 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="width: 100%; min-height: 300px">
+<div>
   <form class="movieForm"
         #movieForm="ngForm">
     <mat-form-field class="searchField">
@@ -16,13 +15,13 @@
     <mat-list-item role="listitem" id="listHeader">
       <span fxFlex="fill">Title</span>
       <span fxFlex="20%">Year</span>
-      <span fxFlex="20%">imdbID</span>
+      <span fxFlex="20%" fxHide.lt-sm>imdbID</span>
     </mat-list-item>
 
     <mat-list-item role="listitem" class="listRow" *ngFor="let film of films">
       <span fxFlex="fill">{{film.Title}}</span>
       <span fxFlex="20%">{{film.Year}}</span>
-      <span fxFlex="20%">{{film.imdbID}}</span>
+      <span fxFlex="20%" fxHide.lt-sm>{{film.imdbID}}</span>
     </mat-list-item>
   </mat-list>
 
