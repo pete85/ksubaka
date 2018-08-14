@@ -11,7 +11,7 @@ export class MoviesService {
 
   constructor(private _http: HttpClient) { }
 
-  getFilms(title, type) {
-    return this._http.get(this.ROOT_URL, {params: {s: title, type: type}});
+  getFilms(title, type, page) {
+    return this._http.get(this.ROOT_URL, {params: {s: title, type: type, page: page}});
   }
 }

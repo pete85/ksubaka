@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviesService} from './_services/movies.service';
 import {MatSnackBar} from '@angular/material';
+import {Film} from './_models/movies';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +10,21 @@ import {MatSnackBar} from '@angular/material';
 })
 export class AppComponent implements OnInit{
   title = 'app';
-  // films: Film[];
-  films: any[];
+  films: Film[];
+  // films: any[];
+  model: any = {};
+  page: number;
 
   constructor(private _moviesService: MoviesService,
               public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
-    this.getFilms();
+    this.page = 1;
   }
 
   getFilms() {
-    this._moviesService.getFilms('john', 'movie')
+    this._moviesService.getFilms(this.model.movieTitle, 'movie', this.page)
       .subscribe(
         data => {
           if (data !== null) {
