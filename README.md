@@ -1,8 +1,11 @@
 # Ksubaka - Front-end developer test
 
 Angular CLI version: 6.0.8
+
 TypeScript version: 2.7.2
+
 Angular Material version: 6.4.3
+
 Angular Flex Layout version: 6.0.0-beta.17
 
 ## Application structure
