@@ -1,6 +1,40 @@
 @import url(~@angular/material/prebuilt-themes/indigo-pink.css);
+html {
+  background: #E3E2E1; }
+
+body {
+  background: #FFFFFF;
+  width: 1170px;
+  margin: 0 auto;
+  min-height: 100vh; }
+
+* {
+  font-family: 'Marcellus SC', serif; }
+
+h1 {
+  font-size: 30px; }
+
+h2 {
+  font-size: 26px; }
+
+h3 {
+  font-size: 22px; }
+
+p {
+  font-size: 18px; }
+
+h1, h2, h3, p {
+  color: #8c8c8c;
+  font-weight: 400; }
+
+.txtBold {
+  font-weight: 600; }
+
 form {
   padding: 16px; }
+
+#listHeader {
+  background: #E3E2E1; }
 
 .listRow {
   border-bottom: 1px solid #E3E2E1;
@@ -44,5 +78,39 @@ form {
   margin-bottom: 50px; }
 
 /* PAGINATION END */
+/* RESPONSIVE */
+@media only screen and (max-width: 1350px) {
+  #btnBack {
+    display: none; } }
+@media only screen and (max-width: 1170px) {
+  body {
+    width: 100%; } }
+@media only screen and (max-width: 959px) {
+  #imgSection {
+    text-align: center; }
+
+  #mainInfo {
+    margin-top: 20px; } }
+/* MOVIE PAGE */
+.moviePage {
+  position: relative;
+  padding: 16px; }
+
+#mainInfo {
+  position: relative; }
+
+#imgSection {
+  position: relative;
+  margin-bottom: 20px;
+  min-height: 480px; }
+  #imgSection img {
+    width: 300px;
+    max-width: 100%;
+    margin-top: 1em; }
+
+#btnBack {
+  position: fixed;
+  bottom: 25px;
+  left: 25px; }
 
 /*# sourceMappingURL=styles.css.map */

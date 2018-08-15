@@ -12,7 +12,7 @@ export class Film {
   Poster: string;
   Production: string;
   Rated: string;
-  Ratings: any;
+  Ratings: ratings[];
   Released: string;
   Response: string;
   Runtime: string;
@@ -24,4 +24,9 @@ export class Film {
   imdbID: string;
   imdbRating: string;
   imdbVotes: string;
+}
+
+export interface ratings {
+  Source: string;
+  Value: string;
 }

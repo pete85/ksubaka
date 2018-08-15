@@ -9,7 +9,10 @@ import {BehaviorSubject} from 'rxjs/index';
 })
 export class MoviesService {
 
-  private filmSource = new BehaviorSubject<any>(null);
+  public filmsSource = new BehaviorSubject<Film[]>(null);
+  films = this.filmsSource.asObservable();
+
+  public filmSource = new BehaviorSubject<Film>(null);
   film = this.filmSource.asObservable();
 
   readonly ROOT_URL = 'http://www.omdbapi.com/?apikey=63484010';
@@ -26,5 +29,9 @@ export class MoviesService {
 
   publishFilm(film: Film) {
     this.filmSource.next(film);
+  }
+
+  publishFilms(films: Film[]) {
+    this.filmsSource.next(films);
   }
 }
