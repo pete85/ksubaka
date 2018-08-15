@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviesService} from './_services/movies.service';
 import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 import {Film} from './_models/movies';
 
 @Component({
@@ -11,13 +12,14 @@ import {Film} from './_models/movies';
 export class AppComponent implements OnInit{
   title = 'app';
   films: Film[];
-  // films: any[];
+  film: any = {};
   model: any = {};
   page: number;
   results: number;
   totalPages: number;
 
   constructor(private _moviesService: MoviesService,
+              private _router: Router,
               public snackBar: MatSnackBar) {
   }
 
@@ -33,8 +35,6 @@ export class AppComponent implements OnInit{
             this.films = data['Search'];
             this.results = data['totalResults'];
             this.totalPages = Math.ceil(this.results / 10);
-            console.log('Films: ', this.films);
-            console.log('Results: ', this.results);
           }
         },
         (error) => {
@@ -42,8 +42,29 @@ export class AppComponent implements OnInit{
           console.log(error);
         },
         () => {
-          console.log('finished retrieving data');
+          console.log('finished retrieving films');
         });
+  }
+
+  getFilm(id) {
+    this._moviesService.getFilm(id)
+      .subscribe(
+        data => {
+          if (data !== null) {
+            this.film = data;
+            console.log('FILM: ', this.film);
+            this._moviesService.publishFilm(this.film);
+            this._router.navigateByUrl('film');
+          }
+        },
+        (error) => {
+          // this.showAlert(JSON.parse(error._body));
+          console.log(error);
+        },
+        () => {
+          console.log('finished retrieving selected film');
+        }
+      )
   }
 
   // PAGINATION

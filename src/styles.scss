@@ -1,5 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+form {
+  padding: 16px;
+}
+
 .listRow {
   border-bottom: 1px solid #E3E2E1;
   cursor: pointer;

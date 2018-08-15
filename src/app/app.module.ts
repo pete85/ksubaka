@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MoviesService} from './_services/movies.service';
+import {appRoutes, routing} from './app.routing';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {HttpClientModule} from '@angular/common/http';
 import {
@@ -58,7 +60,8 @@ import { MovieComponent } from './movie/movie.component';
     MatToolbarModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    routing
   ],
   exports: [
     BrowserAnimationsModule,
@@ -81,7 +84,7 @@ import { MovieComponent } from './movie/movie.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

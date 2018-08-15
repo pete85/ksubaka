@@ -18,7 +18,7 @@
       <span fxFlex="20%" fxHide.lt-sm>imdbID</span>
     </mat-list-item>
 
-    <mat-list-item role="listitem" class="listRow" *ngFor="let film of films">
+    <mat-list-item role="listitem" class="listRow" *ngFor="let film of films" (click)="getFilm(film.imdbID)">
       <span fxFlex="fill">{{film.Title}}</span>
       <span fxFlex="20%">{{film.Year}}</span>
       <span fxFlex="20%" fxHide.lt-sm>{{film.imdbID}}</span>
